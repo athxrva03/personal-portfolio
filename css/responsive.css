@@ -46,13 +46,6 @@
         max-width:100%;
     }
 
-    .hero-right img{
-
-        width:280px;
-
-        height:280px;
-    }
-
     .hero-buttons{
 
         justify-content:center;
@@ -161,11 +154,14 @@
         font-size:1.2rem;
     }
 
+    .hero-right{
+        width :100%;
+        height : auto;
+    }
+
     .hero-right img{
-
-        width:220px;
-
-        height:220px;
+        width:auto;
+        height: 280px;
     }
 
     .btn{

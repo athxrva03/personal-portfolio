@@ -2,8 +2,6 @@ const roles = [
     "Software Developer",
     "Java & Spring Boot Developer",
     "AI Enthusiast",
-    "Full Stack Developer",
-    "DSA Learner",
     "Open Source Contributor"
 ];
 
