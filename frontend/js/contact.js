@@ -19,7 +19,7 @@ contactForm.addEventListener("submit", async function (e) {
 
     try {
 
-        const response = await fetch("http://localhost:8080/api/contact", {
+        const response = await fetch("https://personal-portfolio-jl2s.onrender.com/api/contact", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
