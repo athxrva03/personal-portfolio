@@ -8,8 +8,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = {"http://127.0.0.1:5500", "https://athxrva03.github.io"})
+@CrossOrigin(origins = {
+    "http://127.0.0.1:5500",
+    "https://athxrva03.github.io"
+})
 public class ContactController {
+
+    @Value("${MAIL_USERNAME}")
+    private String username;
 
     private final EmailService emailService;
 
@@ -17,12 +23,14 @@ public class ContactController {
         this.emailService = emailService;
     }
 
-    @PostMapping("/contact")
-    public String send(@RequestBody ContactRequest request){
-
-        emailService.send(request);
-
-        return "Message Sent Successfully";
+    @GetMapping("/test")
+    public String test() {
+        return username;
     }
 
+    @PostMapping("/contact")
+    public String send(@RequestBody ContactRequest request){
+        emailService.send(request);
+        return "Message Sent Successfully";
+    }
 }
