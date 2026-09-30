@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
     "http://127.0.0.1:5500",
     "https://athxrva03.github.io"
 })
+@CrossOrigin(origins = "*")
 public class ContactController {
 
     @Value("${MAIL_USERNAME}")
