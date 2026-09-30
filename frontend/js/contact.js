@@ -1,25 +1,26 @@
+const API_URL = window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost"
+    ? "http://localhost:8080/api/contact"
+    : "https://personal-portfolio-jl2s.onrender.com/api/contact";
+
 const contactForm = document.getElementById("contact-form");
 const statusText = document.getElementById("form-status");
 
 contactForm.addEventListener("submit", async function (e) {
-
     e.preventDefault();
 
     const submitBtn = this.querySelector("button");
-
     submitBtn.disabled = true;
     submitBtn.innerText = "Sending...";
 
     const contactData = {
         name: document.getElementById("name").value,
         email: document.getElementById("email").value,
-        number : document.getElementById("number").value, 
+        number: document.getElementById("number").value, 
         message: document.getElementById("message").value
     };
 
     try {
-
-        const response = await fetch("https://personal-portfolio-jl2s.onrender.com/api/contact", {
+        const response = await fetch(API_URL, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -39,17 +40,12 @@ contactForm.addEventListener("submit", async function (e) {
         contactForm.reset();
 
     } catch (error) {
-
         console.error(error);
-
         statusText.textContent = "Failed to send message.";
         statusText.style.color = "#ef4444";
 
     } finally {
-
         submitBtn.disabled = false;
         submitBtn.innerText = "Send Message";
-
     }
-
 });
